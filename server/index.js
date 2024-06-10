@@ -6,11 +6,13 @@ import cookieParser from "cookie-parser";
 import userRoutes from "./routes/users.js";
 import authRoutes from "./routes/auths.js";
 import tweetRoutes from "./routes/tweets.js";
+import cors from 'cors';
 
 const app = express();
 dotenv.config();
 
 // Middleware
+app.use(cors());
 app.use(cookieParser());
 app.use(express.json());
 
