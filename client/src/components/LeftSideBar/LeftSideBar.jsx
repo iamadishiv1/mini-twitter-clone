@@ -6,7 +6,17 @@ import PersonIcon from "@mui/icons-material/Person";
 import { Link } from 'react-router-dom';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 
+import { useDispatch } from 'react-redux';
+import { logout } from '../../redux/userS';
+
 const LeftSideBar = () => {
+
+  const dispatch = useDispatch();
+
+  const handleLogout = () => {
+    dispatch(logout());
+  };
+
   return (
     <div className="flex flex-col h-full md:h-[90vh] justify-between mr-6">
       <div className="mt-6 flex flex-col space-y-4">
@@ -40,7 +50,7 @@ const LeftSideBar = () => {
             <p className="font-bold cursor-pointer">Username</p>
             <p className="font-medium cursor-pointer">@Username</p>
             <Link to="/signin">
-                <button className="bg-slate-500 px-4 py-2 text-white rounded-full">Logout</button>
+                <button className="bg-slate-500 px-4 py-2 text-white rounded-full" onClick={handleLogout}>Logout</button>
             </Link>
         </div>
       </div>
